@@ -66,7 +66,7 @@ A lightweight tool built with Streamlit and PyMuPDF. It converts PDF pages into 
 ## 👨‍💻 作者 | Author
 
 **Jincheng Qin**
-- 📧 Email: [qinjincheng@mail.sic.ac.cn](mailto:qinjincheng@mail.sic.ac.cn)
+- 📧 Email: [qinjccas@gmail.com](mailto:qinjccas@gmail.com)
 
 ---
 
