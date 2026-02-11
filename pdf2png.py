@@ -3,35 +3,27 @@ import fitz  # PyMuPDF
 from PIL import Image
 import io
 import zipfile
+import os
 
 # 页面配置 / Page Configuration
 st.set_page_config(page_title="PDF to Long Image Tool", page_icon="📄")
 
 # --- README 展示功能 / Show README Feature ---
 # 使用 st.expander 实现平时关上、需要时展开的功能
+# 定义文件路径 (确保读取的是脚本所在目录下的 README.md)
+# Get the absolute path of the directory where the script is located
+current_dir = os.path.dirname(os.path.abspath(__file__))
+readme_path = os.path.join(current_dir, "README.md")
+
 with st.expander("📖 查看使用指南与项目说明 (Show Guide & README)"):
-    st.markdown("""
-    # 📄 PDF 转换长图工具 | PDF to Long Image Conversion Tool
-    
-    这是一个基于 **Streamlit** 和 **PyMuPDF** 开发的轻量级 PDF 处理工具。
-    A lightweight tool to convert PDF pages into high-definition images or vertical long images.
-
-    ---
-
-    ### ✨ 功能亮点 | Key Features
-    * **🌍 国际化界面 (Bilingual UI)**: 全界面中英双语对照。
-    * **🖼️ 自由拼接 (Vertical Merging)**: 自定义合并页数。
-    * **🔍 极致清晰 (High Quality)**: 支持 1.0x - 5.0x 缩放因子。
-    * **🎁 批量打包 (ZIP Packaging)**: 一键下载所有生成的图片。
-
-    ### 🚀 本地运行 | Local Run
-    1. **安装依赖**: `pip install pymupdf pillow streamlit`
-    2. **启动应用**: `streamlit run pdf_tool.py`
-
-    ---
-    **Author:** Jincheng Qin  
-    **Email:** qinjincheng@mail.sic.ac.cn
-    """)
+    # 尝试读取文件
+    try:
+        with open(readme_path, "r", encoding="utf-8") as f:
+            readme_content = f.read()
+        # 渲染读取到的 Markdown 内容
+        st.markdown(readme_content)
+    except FileNotFoundError:
+        st.error("⚠️ 未找到 README.md 文件，请检查路径。 (README.md not found)")
 
 # 自定义小字样式的 Markdown 函数
 def bilingual_title(zh, en):
@@ -154,4 +146,5 @@ if uploaded_file is not None:
             )
 
         except Exception as e:
+
             st.error(f"处理出错 (Error): {str(e)}")
