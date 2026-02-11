@@ -6,7 +6,7 @@ import zipfile
 import os
 
 # 页面配置 / Page Configuration
-st.set_page_config(page_title="PDF to Long Image Tool", page_icon="📄")
+st.set_page_config(page_title="PDF to Long Image Tool", page_icon="📄", layout="wide")
 
 # --- README 展示功能 / Show README Feature ---
 # 使用 st.expander 实现平时关上、需要时展开的功能
@@ -148,3 +148,4 @@ if uploaded_file is not None:
         except Exception as e:
 
             st.error(f"处理出错 (Error): {str(e)}")
+
