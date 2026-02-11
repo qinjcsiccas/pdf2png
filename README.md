@@ -30,7 +30,7 @@ A lightweight tool built with Streamlit and PyMuPDF. It converts PDF pages into 
 
 1. **克隆仓库 | Clone the Repo**
     ```bash
-    git clone [https://github.com/YourUsername/pdf-to-long-image.git](https://github.com/YourUsername/pdf-to-long-image.git)
+    git clone https://github.com/qinjcsiccas/pdf-to-long-image.git
     cd pdf-to-long-image
     ```
 
